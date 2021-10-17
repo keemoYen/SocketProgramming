@@ -1,20 +1,21 @@
 import socket
 
 # Select an appropriate port number. 
-PORT = """Your Code here"""
+PORT = 6575
 # Set The Server's IP Address
-SERVER_IP = """Your Code here"""
+SERVER_IP = '127.0.0.1'
 # Set up the Server's Address
-ADDR = "(SERVER_IP, PORT)" """Your Code here"""
+ADDR = (SERVER_IP, PORT)
 FORMAT = 'utf-8'
 
 # Add code to initialize the Socket.
-client = """Your Code here"""
+client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 client.connect(ADDR)
 
 # Write Code that will allow the Client (Agent) to send messages to the server. The Function accepts the message as a String (msg) and sends that message to the Server through a connection established.
 def send(msg):
-    """Your Code here"""
+    print('enter')
+    client.send(msg.encode())
 
 # Write code to Prompts the Agent to enter their connection code and returns the code given.
 def getConCode():
@@ -23,6 +24,10 @@ def getConCode():
 # Write code to Prompts the Agent to enter an answer and returns the answer given.
 def getAnswer(question):
     """Your Code here"""
+
+msg = input("type password:" )
+send(msg)
+print("message sent")
 
 # Get Connection Code.
 connCode = getConCode()
